@@ -1,0 +1,42 @@
+<odoo>
+
+    <record id="action_materials" model="ir.actions.act_window">
+        <field name="name">Materials</field>
+        <field name="res_model">material.management.material</field>
+        <field name="view_mode">kanban,form</field>
+    </record>
+
+    <record id="view_material_form" model="ir.ui.view">
+        <field name="name">material.form</field>
+        <field name="model">material.management.material</field>
+        <field name="arch" type="xml">
+            <form string="Material">
+                <sheet>
+                    <group>
+                        <field name="kode"/>
+                        <field name="nama"/>
+                        <field name="tipe_material"/>
+                        <field name="buy_price"/>
+                        <field name="supplier_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_material_kanban" model="ir.ui.view">
+        <field name="name">material.kanban</field>
+        <field name="model">material.management.material</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <field name="kode"/>
+                <field name="nama"/>
+                <field name="tipe_material"/>
+            </kanban>
+        </field>
+    </record>
+
+    <menuitem id="material_management_menu" name="Materials" sequence="1"/>
+    <menuitem id="material_menu_item" name="Materials" parent="material_management_menu" action="action_materials"/>
+
+</odoo>
